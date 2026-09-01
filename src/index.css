@@ -1,0 +1,2136 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap");
+
+:root {
+  font-family: "Inter", sans-serif;
+  color: #f4ead7;
+  background: #050505;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+
+  --black: #050505;
+  --black-soft: #0b0b09;
+  --brown: #161109;
+  --gold: #f2a900;
+  --gold-dark: #bd7610;
+  --cream: #f4ead7;
+  --muted: #a69b89;
+  --green: #214a19;
+  --border: rgba(242, 169, 0, 0.18);
+}
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+
+  background:
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(59, 79, 33, 0.12),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 10%,
+      rgba(242, 169, 0, 0.08),
+      transparent 32%
+    ),
+    #050505;
+
+  color: var(--cream);
+}
+
+button,
+a {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site {
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+  height: 86px;
+  padding: 0 7%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 30px;
+
+  position: fixed;
+  inset: 0 0 auto;
+
+  z-index: 100;
+
+  background: rgba(5, 5, 5, 0.82);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.brand,
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-symbol {
+  width: 46px;
+  height: 46px;
+
+  border-radius: 50%;
+
+  display: grid;
+  place-items: center;
+
+  font-size: 24px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #f1ae22,
+      #8c5205
+    );
+
+  box-shadow:
+    0 0 28px rgba(242, 169, 0, 0.15);
+}
+
+.brand strong,
+.footer-brand strong {
+  display: block;
+
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 25px;
+
+  letter-spacing: 1.5px;
+}
+
+.brand span,
+.footer-brand span {
+  color: var(--muted);
+
+  font-size: 10px;
+
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+}
+
+.navbar nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+
+  margin-left: auto;
+}
+
+.navbar nav a {
+  color: #c9bfaf;
+
+  font-size: 13px;
+
+  transition: color 0.2s ease;
+}
+
+.navbar nav a:hover {
+  color: var(--gold);
+}
+
+/* =========================================
+   BOTÕES
+========================================= */
+
+.button {
+  min-height: 48px;
+
+  padding: 0 23px;
+
+  border-radius: 999px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  font-weight: 800;
+  font-size: 13px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button-small {
+  min-height: 40px;
+
+  padding: 0 19px;
+
+  color: #111;
+
+  background: var(--gold);
+}
+
+.button-small:hover {
+  box-shadow:
+    0 10px 30px rgba(242, 169, 0, 0.18);
+}
+
+.button-primary {
+  color: #111;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffbd22,
+      #de8a00
+    );
+
+  box-shadow:
+    0 10px 35px rgba(242, 169, 0, 0.16);
+}
+
+.button-primary:hover {
+  box-shadow:
+    0 14px 40px rgba(242, 169, 0, 0.25);
+}
+
+.button-outline {
+  border: 1px solid rgba(242, 169, 0, 0.3);
+
+  color: #efdfbf;
+
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.button-outline:hover {
+  background: rgba(242, 169, 0, 0.07);
+
+  border-color: rgba(242, 169, 0, 0.55);
+}
+
+.button-outline-light {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  color: var(--cream);
+
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.button-outline-light:hover {
+  border-color: rgba(242, 169, 0, 0.5);
+
+  background: rgba(242, 169, 0, 0.06);
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+  min-height: 100vh;
+
+  padding: 150px 7% 80px;
+
+  display: grid;
+
+  grid-template-columns:
+    1.05fr
+    0.95fr;
+
+  align-items: center;
+
+  gap: 80px;
+
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  opacity: 0.15;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    );
+
+  background-size: 55px 55px;
+
+  pointer-events: none;
+}
+
+.hero-content,
+.hero-art {
+  position: relative;
+
+  z-index: 2;
+}
+
+.hero-tag {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 9px 15px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 999px;
+
+  background:
+    rgba(242, 169, 0, 0.05);
+
+  color: #d4ad62;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 1.4px;
+
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 27px 0 18px;
+
+  max-width: 760px;
+
+  font-family:
+    "Bebas Neue",
+    sans-serif;
+
+  font-size:
+    clamp(
+      70px,
+      8vw,
+      122px
+    );
+
+  font-weight: 400;
+
+  line-height: 0.84;
+
+  letter-spacing: 0.5px;
+}
+
+.hero h1 span {
+  color: var(--gold);
+}
+
+.hero-description {
+  max-width: 620px;
+
+  color: #ada391;
+
+  font-size: 17px;
+
+  line-height: 1.75;
+}
+
+.hero-actions {
+  margin-top: 34px;
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 12px;
+}
+
+/* =========================================
+   HERO INFO
+========================================= */
+
+.hero-info {
+  margin-top: 55px;
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 35px;
+}
+
+.hero-info > div {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+.hero-info-icon {
+  width: 40px;
+  height: 40px;
+
+  border-radius: 12px;
+
+  display: grid;
+
+  place-items: center;
+
+  background:
+    rgba(255, 255, 255, 0.04);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.06);
+}
+
+.hero-info strong {
+  display: block;
+
+  margin-bottom: 3px;
+
+  font-size: 12px;
+}
+
+.hero-info div div span {
+  color: #7e776c;
+
+  font-size: 10px;
+}
+
+/* =========================================
+   HERO ARTE
+========================================= */
+
+.hero-art {
+  min-height: 610px;
+
+  display: grid;
+
+  place-items: center;
+}
+
+.hero-circle {
+  width: min(490px, 85vw);
+
+  aspect-ratio: 1;
+
+  padding: 18px;
+
+  border-radius: 50%;
+
+  position: relative;
+
+  background:
+    linear-gradient(
+      #070707,
+      #070707
+    )
+    padding-box,
+    linear-gradient(
+      145deg,
+      #f4b124,
+      #4d3210,
+      #235218
+    )
+    border-box;
+
+  border:
+    2px solid transparent;
+
+  box-shadow:
+    0 0 0 24px
+      rgba(242, 169, 0, 0.025),
+    0 0 0 50px
+      rgba(242, 169, 0, 0.015),
+    0 50px 120px
+      rgba(0, 0, 0, 0.8);
+}
+
+.hero-circle-inner {
+  width: 100%;
+  height: 100%;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle at 50% 25%,
+      rgba(242, 169, 0, 0.17),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 50% 120%,
+      rgba(30, 76, 25, 0.35),
+      transparent 50%
+    ),
+    #080806;
+
+  border:
+    1px solid
+    rgba(242, 169, 0, 0.18);
+}
+
+.camel {
+  font-size: 130px;
+
+  filter:
+    drop-shadow(
+      0 15px 18px
+      rgba(0, 0, 0, 0.6)
+    );
+}
+
+.hero-circle span {
+  margin-top: 2px;
+
+  font-family:
+    "Bebas Neue",
+    sans-serif;
+
+  color: var(--gold);
+
+  font-size: 50px;
+
+  letter-spacing: 2px;
+}
+
+.hero-circle small {
+  color: #8d8069;
+
+  font-size: 11px;
+
+  letter-spacing: 6px;
+
+  text-transform: uppercase;
+}
+
+/* =========================================
+   BRILHOS
+========================================= */
+
+.hero-glow {
+  position: absolute;
+
+  border-radius: 50%;
+
+  filter: blur(120px);
+
+  pointer-events: none;
+}
+
+.hero-glow-one {
+  width: 350px;
+  height: 350px;
+
+  right: 9%;
+  top: 23%;
+
+  background:
+    rgba(242, 169, 0, 0.12);
+}
+
+.hero-glow-two {
+  width: 280px;
+  height: 280px;
+
+  right: 15%;
+  bottom: 6%;
+
+  background:
+    rgba(39, 102, 32, 0.14);
+}
+
+/* =========================================
+   FUMAÇA
+========================================= */
+
+.smoke {
+  position: absolute;
+
+  border:
+    2px solid
+    rgba(255, 255, 255, 0.035);
+
+  border-radius: 50%;
+
+  filter: blur(3px);
+}
+
+.smoke-one {
+  width: 110px;
+  height: 210px;
+
+  top: 70px;
+  right: 60px;
+
+  transform: rotate(22deg);
+}
+
+.smoke-two {
+  width: 90px;
+  height: 170px;
+
+  top: 35px;
+  right: 125px;
+
+  transform: rotate(-20deg);
+}
+
+.smoke-three {
+  width: 160px;
+  height: 310px;
+
+  top: 20px;
+  right: 20px;
+
+  transform: rotate(30deg);
+}
+
+/* =========================================
+   SEÇÕES
+========================================= */
+
+.section {
+  padding: 110px 7%;
+}
+
+.lounge-section {
+  background:
+    radial-gradient(
+      circle at 20% 100%,
+      rgba(41, 85, 32, 0.12),
+      transparent 30%
+    ),
+    #090908;
+
+  border-top:
+    1px solid
+    rgba(255, 255, 255, 0.04);
+}
+
+.section-heading {
+  max-width: 680px;
+}
+
+.eyebrow {
+  color: var(--gold);
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 3px;
+}
+
+.section-heading h2,
+.jukebox-content h2,
+.store-overlay h2,
+.location-content h2 {
+  margin: 14px 0;
+
+  font-family:
+    "Bebas Neue",
+    sans-serif;
+
+  font-weight: 400;
+
+  font-size:
+    clamp(
+      48px,
+      6vw,
+      80px
+    );
+
+  line-height: 0.95;
+}
+
+.section-heading p,
+.jukebox-content p,
+.store-overlay p {
+  color: #938b7e;
+
+  line-height: 1.8;
+}
+
+/* =========================================
+   CARDS LOUNGE
+========================================= */
+
+/* =========================================
+   LOUNGE + INSTAGRAM
+========================================= */
+
+.lounge-heading {
+  max-width: 720px;
+}
+
+.lounge-showcase {
+  margin-top: 45px;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+
+  align-items: start;
+
+  gap: 45px;
+}
+
+/* CARDS MENORES */
+
+.lounge-features {
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+.lounge-mini-card {
+  min-height: 115px;
+
+  padding: 20px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.035),
+      rgba(255, 255, 255, 0.01)
+    ),
+    #0c0c0a;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.06);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.lounge-mini-card:hover {
+  transform: translateX(5px);
+
+  border-color:
+    rgba(242, 169, 0, 0.28);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(242, 169, 0, 0.04),
+      rgba(255, 255, 255, 0.01)
+    ),
+    #0c0c0a;
+}
+
+.lounge-mini-card .feature-icon {
+  width: 46px;
+  height: 46px;
+
+  min-width: 46px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 14px;
+
+  background:
+    rgba(242, 169, 0, 0.09);
+
+  border:
+    1px solid
+    rgba(242, 169, 0, 0.17);
+
+  font-size: 21px;
+}
+
+.lounge-mini-card h3 {
+  margin: 0 0 6px;
+
+  font-size: 15px;
+}
+
+.lounge-mini-card p {
+  margin: 0;
+
+  color: #8a8378;
+
+  font-size: 11px;
+
+  line-height: 1.55;
+}
+
+/* =========================================
+   INSTAGRAM
+========================================= */
+
+.lounge-instagram {
+  width: 360px;
+  max-width: 100%;
+
+  justify-self: end;
+
+  padding: 14px;
+
+  border-radius: 22px;
+
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(242, 169, 0, 0.08),
+      transparent 35%
+    ),
+    #0c0c0a;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.06);
+
+  overflow: hidden;
+  transform: translateY(-190px);
+}
+
+.instagram-header {
+  min-height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding: 0 3px 12px;
+}
+
+.instagram-header div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.instagram-label {
+  color: var(--gold);
+
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: 1.7px;
+}
+
+.instagram-header strong {
+  font-size: 14px;
+}
+
+.instagram-header > a {
+  width: 38px;
+  height: 38px;
+
+  display: grid;
+  place-items: center;
+
+  flex-shrink: 0;
+
+  border-radius: 11px;
+
+  color: #e1306c;
+
+  background:
+    rgba(225, 48, 108, 0.07);
+
+  border:
+    1px solid
+    rgba(225, 48, 108, 0.12);
+
+  font-size: 20px;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.instagram-header > a:hover {
+  transform: scale(1.07);
+
+  background:
+    rgba(225, 48, 108, 0.12);
+}
+
+/* =========================================
+   VÍDEO INSTAGRAM
+========================================= */
+
+.instagram-video {
+  width: 100%;
+  height: 430px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 16px;
+
+  background: #fff;
+}
+
+.instagram-video .instagram-media {
+  width: 100% !important;
+
+  min-width: 0 !important;
+  max-width: 100% !important;
+
+  margin: 0 !important;
+}
+
+.instagram-video iframe {
+  width: 100% !important;
+  height: 100% !important;
+
+  min-width: 0 !important;
+  max-width: 100% !important;
+
+  display: block;
+
+  margin: 0 !important;
+
+  border: 0 !important;
+
+  background: #fff;
+}
+
+/* =========================================
+   JUKEBOX
+========================================= */
+
+.jukebox-section {
+  padding: 110px 7%;
+
+  background: #050505;
+}
+
+.jukebox-card {
+  min-height: 650px;
+
+  padding: 80px;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    0.8fr;
+
+  gap: 70px;
+
+  align-items: center;
+
+  border-radius: 42px;
+
+  overflow: hidden;
+
+  position: relative;
+
+  background:
+    radial-gradient(
+      circle at 80% 30%,
+      rgba(242, 169, 0, 0.13),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 90% 100%,
+      rgba(35, 82, 25, 0.28),
+      transparent 42%
+    ),
+    #100c07;
+
+  border:
+    1px solid
+    rgba(242, 169, 0, 0.14);
+}
+
+.jukebox-content {
+  position: relative;
+
+  z-index: 2;
+}
+
+.jukebox-content p {
+  max-width: 540px;
+
+  margin-bottom: 30px;
+}
+
+.jukebox-phone {
+  display: flex;
+
+  justify-content: center;
+}
+
+/* =========================================
+   CELULAR JUKEBOX
+========================================= */
+
+.phone {
+  width: 295px;
+
+  padding: 10px;
+
+  border-radius: 44px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #362613,
+      #0c0c0c
+    );
+
+  border:
+    1px solid #5d4525;
+
+  box-shadow:
+    0 45px 80px
+    rgba(0, 0, 0, 0.6);
+
+  transform: rotate(7deg);
+}
+
+.phone-camera {
+  width: 90px;
+  height: 20px;
+
+  margin:
+    7px
+    auto
+    -8px;
+
+  position: relative;
+
+  z-index: 4;
+
+  border-radius: 20px;
+
+  background: #050505;
+}
+
+.phone-screen {
+  min-height: 540px;
+
+  padding:
+    65px
+    24px
+    26px;
+
+  border-radius: 34px;
+
+  text-align: center;
+
+  background:
+    radial-gradient(
+      circle at 50% 10%,
+      rgba(242, 169, 0, 0.2),
+      transparent 30%
+    ),
+    #080806;
+}
+
+.phone-logo {
+  display: block;
+
+  font-size: 67px;
+}
+
+.phone-screen > strong {
+  display: block;
+
+  margin-top: 7px;
+
+  font-family:
+    "Bebas Neue",
+    sans-serif;
+
+  font-size: 32px;
+
+  color: var(--gold);
+}
+
+.phone-screen > small {
+  color: #6d665c;
+
+  letter-spacing: 5px;
+}
+
+.phone-song {
+  margin-top: 80px;
+
+  padding: 18px;
+
+  border-radius: 20px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  text-align: left;
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.06);
+}
+
+.phone-song > span {
+  width: 43px;
+  height: 43px;
+
+  border-radius: 13px;
+
+  display: grid;
+
+  place-items: center;
+
+  background:
+    rgba(242, 169, 0, 0.12);
+
+  color: var(--gold);
+
+  font-size: 22px;
+}
+
+.phone-song strong,
+.phone-song small {
+  display: block;
+}
+
+.phone-song small {
+  margin-top: 3px;
+
+  color: #716b61;
+}
+
+.phone-button {
+  margin-top: 15px;
+
+  padding: 16px;
+
+  border-radius: 16px;
+
+  background: var(--gold);
+
+  color: #0c0a07;
+
+  font-size: 11px;
+
+  font-weight: 900;
+}
+
+/* =========================================
+   REDES SOCIAIS
+========================================= */
+
+.social-section {
+  background: #090908;
+}
+
+.social-grid {
+  margin-top: 50px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 16px;
+}
+
+.social-card {
+  min-height: 115px;
+
+  padding: 25px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 17px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.06);
+
+  border-radius: 22px;
+
+  background:
+    rgba(255, 255, 255, 0.025);
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.social-card:hover {
+  border-color:
+    rgba(242, 169, 0, 0.28);
+
+  background:
+    rgba(242, 169, 0, 0.04);
+
+  transform:
+    translateY(-3px);
+}
+
+.social-icon {
+  width: 50px;
+  height: 50px;
+
+  display: grid;
+  place-items: center;
+
+  flex-shrink: 0;
+
+  border-radius: 15px;
+
+  font-size: 27px;
+
+  background: rgba(255, 255, 255, 0.035);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.07);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.social-icon svg {
+  display: block;
+}
+
+.social-card:hover .social-icon {
+  transform: scale(1.08);
+
+  border-color:
+    rgba(242, 169, 0, 0.18);
+}
+
+.social-icon.instagram {
+  color: #e1306c;
+
+  background:
+    rgba(225, 48, 108, 0.07);
+}
+
+.social-icon.youtube {
+  color: #ff0000;
+
+  background:
+    rgba(255, 0, 0, 0.06);
+}
+
+.social-icon.whatsapp {
+  color: #25d366;
+
+  background:
+    rgba(37, 211, 102, 0.06);
+}
+
+.social-card:hover .social-icon.instagram {
+  box-shadow:
+    0 0 28px
+    rgba(225, 48, 108, 0.12);
+}
+
+.social-card:hover .social-icon.youtube {
+  box-shadow:
+    0 0 28px
+    rgba(255, 0, 0, 0.1);
+}
+
+.social-card:hover .social-icon.whatsapp {
+  box-shadow:
+    0 0 28px
+    rgba(37, 211, 102, 0.1);
+}
+
+.social-card div {
+  flex: 1;
+}
+
+.social-card strong,
+.social-card small {
+  display: block;
+}
+
+.social-card small {
+  margin-top: 5px;
+
+  color: #80796d;
+}
+
+.social-card b {
+  color: var(--gold);
+
+  font-size: 20px;
+}
+
+/* =========================================
+   STORE
+========================================= */
+
+.store-section {
+  min-height: 550px;
+
+  padding: 90px 7%;
+
+  display: flex;
+
+  align-items: center;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(6, 6, 5, 0.97),
+      rgba(8, 8, 7, 0.65)
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      #49320f,
+      transparent 40%
+    ),
+    #12110c;
+
+  position: relative;
+}
+
+.store-section::after {
+  content: "";
+
+  position: absolute;
+
+  right: -100px;
+  top: 50%;
+
+  transform:
+    translateY(-50%);
+
+  width: 500px;
+  height: 500px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(242, 169, 0, 0.08),
+      transparent 65%
+    );
+
+  pointer-events: none;
+}
+
+.store-overlay {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 80px;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+.store-content {
+  max-width: 620px;
+}
+
+.store-content p {
+  max-width: 580px;
+}
+
+.construction-badge {
+  margin-top: 25px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  padding:
+    10px
+    15px;
+
+  border-radius: 999px;
+
+  background:
+    rgba(242, 169, 0, 0.07);
+
+  border:
+    1px solid
+    rgba(242, 169, 0, 0.2);
+
+  color: #d9a23b;
+
+  font-size: 12px;
+
+  font-weight: 700;
+}
+
+/* =========================================
+   LOGO STORE
+========================================= */
+
+.store-brand-area {
+  width: 440px;
+
+  min-width: 360px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 32px;
+}
+
+.store-logo {
+  width: 380px;
+
+  max-width: 100%;
+
+  height: auto;
+
+  display: block;
+
+  object-fit: contain;
+
+  opacity: 0.96;
+
+  filter:
+    drop-shadow(
+      0 25px 40px
+      rgba(0, 0, 0, 0.75)
+    )
+    drop-shadow(
+      0 0 35px
+      rgba(242, 169, 0, 0.06)
+    );
+
+  transition:
+    transform 0.35s ease,
+    filter 0.35s ease;
+}
+
+.store-logo:hover {
+  transform:
+    scale(1.025);
+
+  filter:
+    drop-shadow(
+      0 30px 45px
+      rgba(0, 0, 0, 0.8)
+    )
+    drop-shadow(
+      0 0 45px
+      rgba(242, 169, 0, 0.12)
+    );
+}
+
+.store-brand-area .button {
+  min-width: 290px;
+}
+
+/* =========================================
+   LOCALIZAÇÃO
+========================================= */
+
+.location-section {
+  display: grid;
+
+  grid-template-columns:
+    0.9fr
+    1.1fr;
+
+  align-items: center;
+
+  gap: 80px;
+
+  background: #080807;
+}
+
+.location-content {
+  max-width: 560px;
+}
+
+.address {
+  margin:
+    25px
+    0
+    30px;
+
+  color: #a89e8d;
+
+  line-height: 1.9;
+}
+
+/* =========================================
+   GOOGLE MAPS
+========================================= */
+
+.google-map {
+  width: 100%;
+
+  height: 430px;
+
+  border-radius: 32px;
+
+  overflow: hidden;
+
+  position: relative;
+
+  border:
+    1px solid
+    rgba(242, 169, 0, 0.18);
+
+  background: #11110e;
+
+  box-shadow:
+    0 30px 80px
+      rgba(0, 0, 0, 0.45),
+    0 0 40px
+      rgba(242, 169, 0, 0.04);
+}
+
+.google-map iframe {
+  width: 100%;
+
+  height: 100%;
+
+  display: block;
+
+  border: 0;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+  padding:
+    60px
+    7%
+    45px;
+
+  background: #040404;
+
+  border-top:
+    1px solid
+    rgba(255, 255, 255, 0.05);
+}
+
+footer p {
+  max-width: 500px;
+
+  margin:
+    27px
+    0;
+
+  color: #746e64;
+
+  line-height: 1.7;
+
+  font-size: 13px;
+}
+
+.footer-links {
+  display: flex;
+
+  gap: 25px;
+
+  margin-bottom: 35px;
+}
+
+.footer-links a {
+  color: #a99e8c;
+
+  font-size: 12px;
+}
+
+.footer-links a:hover {
+  color: var(--gold);
+}
+
+.copyright {
+  display: block;
+
+  padding-top: 25px;
+
+  border-top:
+    1px solid
+    rgba(255, 255, 255, 0.05);
+
+  color: #555048;
+
+  font-size: 10px;
+}
+
+/* =========================================
+   MENU MOBILE FIXO
+========================================= */
+
+.mobile-actions {
+  display: none;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+  .lounge-instagram {
+  width: 100%;
+  max-width: 430px;
+
+  justify-self: center;
+
+  margin-top: 8px;
+
+  transform: none;
+}
+
+  .navbar nav {
+    display: none;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+
+    text-align: center;
+  }
+
+  .hero-content {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+  }
+
+  .hero-info {
+    justify-content: center;
+  }
+
+  .hero-art {
+    min-height: 500px;
+  }
+
+  .features-grid,
+  .social-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lounge-showcase {
+    grid-template-columns: 1fr;
+
+    gap: 28px;
+  }
+
+  .lounge-instagram {
+    width: 100%;
+    max-width: 430px;
+
+    justify-self: center;
+
+    margin-top: 8px;
+  }
+
+  .instagram-video {
+    height: 480px;
+  }
+
+  .jukebox-card {
+    grid-template-columns: 1fr;
+
+    text-align: center;
+  }
+
+  .jukebox-content p {
+    margin-left: auto;
+
+    margin-right: auto;
+  }
+
+  .store-overlay {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 55px;
+  }
+
+  .store-brand-area {
+    width: 100%;
+
+    min-width: 0;
+
+    align-items: center;
+  }
+
+  .location-section {
+    grid-template-columns: 1fr;
+  }
+
+  .location-content {
+    max-width: 100%;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+
+  body {
+    padding-bottom: 70px;
+  }
+
+  /* NAVBAR */
+
+  .navbar {
+    height: 72px;
+
+    padding: 0 18px;
+  }
+
+  .navbar .button-small {
+    display: none;
+  }
+
+  .brand-symbol {
+    width: 40px;
+
+    height: 40px;
+
+    font-size: 20px;
+  }
+
+  .brand strong {
+    font-size: 21px;
+  }
+
+  /* HERO */
+
+  .hero {
+    min-height: auto;
+
+    padding:
+      125px
+      20px
+      60px;
+  }
+
+  .hero h1 {
+    font-size: 62px;
+  }
+
+  .hero-description {
+    font-size: 14px;
+  }
+
+  .hero-actions {
+    width: 100%;
+  }
+
+  .hero-actions .button {
+    width: 100%;
+  }
+
+  .hero-info {
+    width: 100%;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 10px;
+
+    text-align: left;
+  }
+
+  .hero-info > div {
+    padding: 10px;
+
+    border-radius: 14px;
+
+    background:
+      rgba(255, 255, 255, 0.02);
+  }
+
+  .hero-art {
+    min-height: 380px;
+  }
+
+  .hero-circle {
+    width: 310px;
+  }
+
+  .camel {
+    font-size: 90px;
+  }
+
+  .hero-circle span {
+    font-size: 37px;
+  }
+
+  /* SEÇÕES */
+
+  .section,
+  .jukebox-section {
+    padding:
+      80px
+      20px;
+  }
+
+  .section-heading h2,
+  .jukebox-content h2,
+  .store-overlay h2,
+  .location-content h2 {
+    font-size: 52px;
+  }
+
+  /* CARDS */
+
+  .features-grid {
+    margin-top: 35px;
+  }
+
+  .feature-card {
+    min-height: 245px;
+
+    padding: 25px;
+  }
+
+  .feature-card h3 {
+    margin-top: 40px;
+  }
+
+  /* LOUNGE */
+
+  .lounge-showcase {
+    margin-top: 35px;
+
+    grid-template-columns: 1fr;
+
+    gap: 28px;
+  }
+
+  .lounge-mini-card {
+    min-height: 105px;
+
+    padding: 17px;
+  }
+
+  .lounge-mini-card .feature-icon {
+    width: 44px;
+    height: 44px;
+
+    min-width: 44px;
+  }
+
+  .lounge-instagram {
+    width: 100%;
+    max-width: 430px;
+
+    justify-self: center;
+
+    padding: 12px;
+
+    border-radius: 18px;
+  }
+
+  .instagram-header {
+    min-height: 54px;
+
+    padding-bottom: 10px;
+  }
+
+  .instagram-video {
+    height: 430px;
+
+    border-radius: 14px;
+  }
+
+  /* JUKEBOX */
+
+  .jukebox-card {
+    padding:
+      55px
+      22px;
+
+    border-radius: 28px;
+  }
+
+  .phone {
+    width: 240px;
+  }
+
+  .phone-screen {
+    min-height: 440px;
+  }
+
+  .phone-song {
+    margin-top: 55px;
+  }
+
+  .social-icon {
+    width: 46px;
+    height: 46px;
+
+    font-size: 25px;
+  }
+
+  /* STORE */
+
+  .store-section {
+    padding:
+      80px
+      20px;
+
+    min-height: auto;
+  }
+
+  .store-section::after {
+    width: 300px;
+
+    height: 300px;
+
+    right: -150px;
+  }
+
+  .store-overlay {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 50px;
+  }
+
+  .store-content {
+    width: 100%;
+  }
+
+  .store-brand-area {
+    width: 100%;
+
+    min-width: 0;
+
+    gap: 28px;
+  }
+
+  .store-logo {
+    width: 260px;
+
+    margin:
+      0
+      auto;
+  }
+
+  .store-brand-area .button {
+    width: 100%;
+
+    min-width: 0;
+  }
+
+  /* LOCALIZAÇÃO */
+
+  .location-section {
+    gap: 45px;
+  }
+
+  .google-map {
+    height: 360px;
+
+    border-radius: 24px;
+  }
+
+  /* FOOTER */
+
+  footer {
+    padding:
+      50px
+      20px
+      35px;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
+
+    gap: 18px;
+  }
+
+  /* MENU FIXO MOBILE */
+
+  .mobile-actions {
+    height: 66px;
+
+    display: grid;
+
+    grid-template-columns:
+      repeat(3, 1fr);
+
+    position: fixed;
+
+    inset:
+      auto
+      0
+      0;
+
+    z-index: 200;
+
+    background:
+      rgba(6, 6, 6, 0.96);
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    border-top:
+      1px solid
+      rgba(242, 169, 0, 0.18);
+  }
+
+  .mobile-actions a {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 3px;
+
+    font-size: 18px;
+  }
+
+  .mobile-actions span {
+    color: #938a7c;
+
+    font-size: 9px;
+
+    font-weight: 700;
+  }
+}
+
+/* =========================================
+   TELAS MUITO PEQUENAS
+========================================= */
+
+@media (max-width: 390px) {
+
+  .hero h1 {
+    font-size: 54px;
+  }
+
+  .hero-circle {
+    width: 275px;
+  }
+
+  .camel {
+    font-size: 78px;
+  }
+
+  .hero-circle span {
+    font-size: 32px;
+  }
+
+  .hero-circle small {
+    font-size: 9px;
+
+    letter-spacing: 4px;
+  }
+
+  .section-heading h2,
+  .jukebox-content h2,
+  .store-overlay h2,
+  .location-content h2 {
+    font-size: 46px;
+  }
+
+  .store-logo {
+    width: 220px;
+  }
+
+  .google-map {
+    height: 310px;
+  }
+}
