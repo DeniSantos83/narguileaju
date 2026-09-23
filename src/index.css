@@ -35,11 +35,7 @@ body {
   min-width: 320px;
 
   background:
-    radial-gradient(
-      circle at 10% 20%,
-      rgba(59, 79, 33, 0.12),
-      transparent 30%
-    ),
+    radial-gradient(circle at 10% 20%, rgba(59, 79, 33, 0.12), transparent 30%),
     radial-gradient(
       circle at 85% 10%,
       rgba(242, 169, 0, 0.08),
@@ -63,6 +59,95 @@ a {
 .site {
   min-height: 100vh;
   overflow: hidden;
+}
+
+/* =========================================
+   PRESENÇA NO LOUNGE
+========================================= */
+
+.lounge-presence {
+  width: min(290px, calc(100vw - 40px));
+  min-height: 72px;
+  padding: 13px 15px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  z-index: 150;
+
+  border: 1px solid rgba(242, 169, 0, 0.32);
+  border-radius: 18px;
+
+  color: var(--cream);
+  background: rgba(13, 13, 11, 0.88);
+
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.lounge-presence:hover {
+  transform: translateY(-3px);
+  border-color: rgba(242, 169, 0, 0.72);
+}
+
+.lounge-presence-dot {
+  width: 10px;
+  height: 10px;
+  flex: 0 0 auto;
+
+  border-radius: 50%;
+
+  background: #58d649;
+  box-shadow:
+    0 0 0 5px rgba(88, 214, 73, 0.13),
+    0 0 14px #58d649;
+
+  animation: lounge-pulse 2.1s infinite;
+}
+
+.lounge-presence small,
+.lounge-presence strong {
+  display: block;
+}
+
+.lounge-presence small {
+  margin-bottom: 3px;
+
+  color: #c49b50;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.lounge-presence strong {
+  color: #fff7e7;
+  font-size: 13px;
+}
+
+.lounge-presence b {
+  margin-left: auto;
+
+  color: var(--gold);
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+@keyframes lounge-pulse {
+  50% {
+    box-shadow:
+      0 0 0 8px rgba(88, 214, 73, 0.04),
+      0 0 17px #58d649;
+  }
 }
 
 /* =========================================
@@ -109,15 +194,9 @@ a {
 
   font-size: 24px;
 
-  background:
-    linear-gradient(
-      145deg,
-      #f1ae22,
-      #8c5205
-    );
+  background: linear-gradient(145deg, #f1ae22, #8c5205);
 
-  box-shadow:
-    0 0 28px rgba(242, 169, 0, 0.15);
+  box-shadow: 0 0 28px rgba(242, 169, 0, 0.15);
 }
 
 .brand strong,
@@ -204,27 +283,19 @@ a {
 }
 
 .button-small:hover {
-  box-shadow:
-    0 10px 30px rgba(242, 169, 0, 0.18);
+  box-shadow: 0 10px 30px rgba(242, 169, 0, 0.18);
 }
 
 .button-primary {
   color: #111;
 
-  background:
-    linear-gradient(
-      135deg,
-      #ffbd22,
-      #de8a00
-    );
+  background: linear-gradient(135deg, #ffbd22, #de8a00);
 
-  box-shadow:
-    0 10px 35px rgba(242, 169, 0, 0.16);
+  box-shadow: 0 10px 35px rgba(242, 169, 0, 0.16);
 }
 
 .button-primary:hover {
-  box-shadow:
-    0 14px 40px rgba(242, 169, 0, 0.25);
+  box-shadow: 0 14px 40px rgba(242, 169, 0, 0.25);
 }
 
 .button-outline {
@@ -286,15 +357,8 @@ a {
   opacity: 0.15;
 
   background-image:
-    linear-gradient(
-      rgba(255, 255, 255, 0.025) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.025) 1px,
-      transparent 1px
-    );
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
 
   background-size: 55px 55px;
 
@@ -321,8 +385,7 @@ a {
 
   border-radius: 999px;
 
-  background:
-    rgba(242, 169, 0, 0.05);
+  background: rgba(242, 169, 0, 0.05);
 
   color: #d4ad62;
 
@@ -339,16 +402,9 @@ a {
 
   max-width: 760px;
 
-  font-family:
-    "Bebas Neue",
-    sans-serif;
+  font-family: "Bebas Neue", sans-serif;
 
-  font-size:
-    clamp(
-      70px,
-      8vw,
-      122px
-    );
+  font-size: clamp(70px, 8vw, 122px);
 
   font-weight: 400;
 
@@ -413,12 +469,9 @@ a {
 
   place-items: center;
 
-  background:
-    rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.04);
 
-  border:
-    1px solid
-    rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .hero-info strong {
@@ -459,29 +512,15 @@ a {
   position: relative;
 
   background:
-    linear-gradient(
-      #070707,
-      #070707
-    )
-    padding-box,
-    linear-gradient(
-      145deg,
-      #f4b124,
-      #4d3210,
-      #235218
-    )
-    border-box;
+    linear-gradient(#070707, #070707) padding-box,
+    linear-gradient(145deg, #f4b124, #4d3210, #235218) border-box;
 
-  border:
-    2px solid transparent;
+  border: 2px solid transparent;
 
   box-shadow:
-    0 0 0 24px
-      rgba(242, 169, 0, 0.025),
-    0 0 0 50px
-      rgba(242, 169, 0, 0.015),
-    0 50px 120px
-      rgba(0, 0, 0, 0.8);
+    0 0 0 24px rgba(242, 169, 0, 0.025),
+    0 0 0 50px rgba(242, 169, 0, 0.015),
+    0 50px 120px rgba(0, 0, 0, 0.8);
 }
 
 .hero-circle-inner {
@@ -511,27 +550,19 @@ a {
     ),
     #080806;
 
-  border:
-    1px solid
-    rgba(242, 169, 0, 0.18);
+  border: 1px solid rgba(242, 169, 0, 0.18);
 }
 
 .camel {
   font-size: 130px;
 
-  filter:
-    drop-shadow(
-      0 15px 18px
-      rgba(0, 0, 0, 0.6)
-    );
+  filter: drop-shadow(0 15px 18px rgba(0, 0, 0, 0.6));
 }
 
 .hero-circle span {
   margin-top: 2px;
 
-  font-family:
-    "Bebas Neue",
-    sans-serif;
+  font-family: "Bebas Neue", sans-serif;
 
   color: var(--gold);
 
@@ -571,8 +602,7 @@ a {
   right: 9%;
   top: 23%;
 
-  background:
-    rgba(242, 169, 0, 0.12);
+  background: rgba(242, 169, 0, 0.12);
 }
 
 .hero-glow-two {
@@ -582,8 +612,7 @@ a {
   right: 15%;
   bottom: 6%;
 
-  background:
-    rgba(39, 102, 32, 0.14);
+  background: rgba(39, 102, 32, 0.14);
 }
 
 /* =========================================
@@ -593,9 +622,7 @@ a {
 .smoke {
   position: absolute;
 
-  border:
-    2px solid
-    rgba(255, 255, 255, 0.035);
+  border: 2px solid rgba(255, 255, 255, 0.035);
 
   border-radius: 50%;
 
@@ -649,9 +676,7 @@ a {
     ),
     #090908;
 
-  border-top:
-    1px solid
-    rgba(255, 255, 255, 0.04);
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .section-heading {
@@ -674,18 +699,11 @@ a {
 .location-content h2 {
   margin: 14px 0;
 
-  font-family:
-    "Bebas Neue",
-    sans-serif;
+  font-family: "Bebas Neue", sans-serif;
 
   font-weight: 400;
 
-  font-size:
-    clamp(
-      48px,
-      6vw,
-      80px
-    );
+  font-size: clamp(48px, 6vw, 80px);
 
   line-height: 0.95;
 }
@@ -750,9 +768,7 @@ a {
     ),
     #0c0c0a;
 
-  border:
-    1px solid
-    rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.06);
 
   transition:
     transform 0.25s ease,
@@ -763,15 +779,10 @@ a {
 .lounge-mini-card:hover {
   transform: translateX(5px);
 
-  border-color:
-    rgba(242, 169, 0, 0.28);
+  border-color: rgba(242, 169, 0, 0.28);
 
   background:
-    linear-gradient(
-      145deg,
-      rgba(242, 169, 0, 0.04),
-      rgba(255, 255, 255, 0.01)
-    ),
+    linear-gradient(145deg, rgba(242, 169, 0, 0.04), rgba(255, 255, 255, 0.01)),
     #0c0c0a;
 }
 
@@ -786,12 +797,9 @@ a {
 
   border-radius: 14px;
 
-  background:
-    rgba(242, 169, 0, 0.09);
+  background: rgba(242, 169, 0, 0.09);
 
-  border:
-    1px solid
-    rgba(242, 169, 0, 0.17);
+  border: 1px solid rgba(242, 169, 0, 0.17);
 
   font-size: 21px;
 }
@@ -834,9 +842,7 @@ a {
     ),
     #0c0c0a;
 
-  border:
-    1px solid
-    rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.06);
 
   overflow: hidden;
   transform: translateY(-190px);
@@ -887,12 +893,9 @@ a {
 
   color: #e1306c;
 
-  background:
-    rgba(225, 48, 108, 0.07);
+  background: rgba(225, 48, 108, 0.07);
 
-  border:
-    1px solid
-    rgba(225, 48, 108, 0.12);
+  border: 1px solid rgba(225, 48, 108, 0.12);
 
   font-size: 20px;
 
@@ -904,8 +907,7 @@ a {
 .instagram-header > a:hover {
   transform: scale(1.07);
 
-  background:
-    rgba(225, 48, 108, 0.12);
+  background: rgba(225, 48, 108, 0.12);
 }
 
 /* =========================================
@@ -994,9 +996,7 @@ a {
     ),
     #100c07;
 
-  border:
-    1px solid
-    rgba(242, 169, 0, 0.14);
+  border: 1px solid rgba(242, 169, 0, 0.14);
 }
 
 .jukebox-content {
@@ -1028,19 +1028,11 @@ a {
 
   border-radius: 44px;
 
-  background:
-    linear-gradient(
-      145deg,
-      #362613,
-      #0c0c0c
-    );
+  background: linear-gradient(145deg, #362613, #0c0c0c);
 
-  border:
-    1px solid #5d4525;
+  border: 1px solid #5d4525;
 
-  box-shadow:
-    0 45px 80px
-    rgba(0, 0, 0, 0.6);
+  box-shadow: 0 45px 80px rgba(0, 0, 0, 0.6);
 
   transform: rotate(7deg);
 }
@@ -1049,10 +1041,7 @@ a {
   width: 90px;
   height: 20px;
 
-  margin:
-    7px
-    auto
-    -8px;
+  margin: 7px auto -8px;
 
   position: relative;
 
@@ -1066,21 +1055,14 @@ a {
 .phone-screen {
   min-height: 540px;
 
-  padding:
-    65px
-    24px
-    26px;
+  padding: 65px 24px 26px;
 
   border-radius: 34px;
 
   text-align: center;
 
   background:
-    radial-gradient(
-      circle at 50% 10%,
-      rgba(242, 169, 0, 0.2),
-      transparent 30%
-    ),
+    radial-gradient(circle at 50% 10%, rgba(242, 169, 0, 0.2), transparent 30%),
     #080806;
 }
 
@@ -1095,9 +1077,7 @@ a {
 
   margin-top: 7px;
 
-  font-family:
-    "Bebas Neue",
-    sans-serif;
+  font-family: "Bebas Neue", sans-serif;
 
   font-size: 32px;
 
@@ -1125,12 +1105,9 @@ a {
 
   text-align: left;
 
-  background:
-    rgba(255, 255, 255, 0.035);
+  background: rgba(255, 255, 255, 0.035);
 
-  border:
-    1px solid
-    rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .phone-song > span {
@@ -1143,8 +1120,7 @@ a {
 
   place-items: center;
 
-  background:
-    rgba(242, 169, 0, 0.12);
+  background: rgba(242, 169, 0, 0.12);
 
   color: var(--gold);
 
@@ -1191,8 +1167,7 @@ a {
 
   display: grid;
 
-  grid-template-columns:
-    repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 
   gap: 16px;
 }
@@ -1208,14 +1183,11 @@ a {
 
   gap: 17px;
 
-  border:
-    1px solid
-    rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.06);
 
   border-radius: 22px;
 
-  background:
-    rgba(255, 255, 255, 0.025);
+  background: rgba(255, 255, 255, 0.025);
 
   transition:
     transform 0.2s ease,
@@ -1224,14 +1196,11 @@ a {
 }
 
 .social-card:hover {
-  border-color:
-    rgba(242, 169, 0, 0.28);
+  border-color: rgba(242, 169, 0, 0.28);
 
-  background:
-    rgba(242, 169, 0, 0.04);
+  background: rgba(242, 169, 0, 0.04);
 
-  transform:
-    translateY(-3px);
+  transform: translateY(-3px);
 }
 
 .social-icon {
@@ -1249,9 +1218,7 @@ a {
 
   background: rgba(255, 255, 255, 0.035);
 
-  border:
-    1px solid
-    rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.07);
 
   transition:
     transform 0.2s ease,
@@ -1267,47 +1234,37 @@ a {
 .social-card:hover .social-icon {
   transform: scale(1.08);
 
-  border-color:
-    rgba(242, 169, 0, 0.18);
+  border-color: rgba(242, 169, 0, 0.18);
 }
 
 .social-icon.instagram {
   color: #e1306c;
 
-  background:
-    rgba(225, 48, 108, 0.07);
+  background: rgba(225, 48, 108, 0.07);
 }
 
 .social-icon.youtube {
   color: #ff0000;
 
-  background:
-    rgba(255, 0, 0, 0.06);
+  background: rgba(255, 0, 0, 0.06);
 }
 
 .social-icon.whatsapp {
   color: #25d366;
 
-  background:
-    rgba(37, 211, 102, 0.06);
+  background: rgba(37, 211, 102, 0.06);
 }
 
 .social-card:hover .social-icon.instagram {
-  box-shadow:
-    0 0 28px
-    rgba(225, 48, 108, 0.12);
+  box-shadow: 0 0 28px rgba(225, 48, 108, 0.12);
 }
 
 .social-card:hover .social-icon.youtube {
-  box-shadow:
-    0 0 28px
-    rgba(255, 0, 0, 0.1);
+  box-shadow: 0 0 28px rgba(255, 0, 0, 0.1);
 }
 
 .social-card:hover .social-icon.whatsapp {
-  box-shadow:
-    0 0 28px
-    rgba(37, 211, 102, 0.1);
+  box-shadow: 0 0 28px rgba(37, 211, 102, 0.1);
 }
 
 .social-card div {
@@ -1345,17 +1302,8 @@ a {
   align-items: center;
 
   background:
-    linear-gradient(
-      90deg,
-      rgba(6, 6, 5, 0.97),
-      rgba(8, 8, 7, 0.65)
-    ),
-    radial-gradient(
-      circle at 80% 20%,
-      #49320f,
-      transparent 40%
-    ),
-    #12110c;
+    linear-gradient(90deg, rgba(6, 6, 5, 0.97), rgba(8, 8, 7, 0.65)),
+    radial-gradient(circle at 80% 20%, #49320f, transparent 40%), #12110c;
 
   position: relative;
 }
@@ -1368,20 +1316,14 @@ a {
   right: -100px;
   top: 50%;
 
-  transform:
-    translateY(-50%);
+  transform: translateY(-50%);
 
   width: 500px;
   height: 500px;
 
   border-radius: 50%;
 
-  background:
-    radial-gradient(
-      circle,
-      rgba(242, 169, 0, 0.08),
-      transparent 65%
-    );
+  background: radial-gradient(circle, rgba(242, 169, 0, 0.08), transparent 65%);
 
   pointer-events: none;
 }
@@ -1419,18 +1361,13 @@ a {
 
   gap: 7px;
 
-  padding:
-    10px
-    15px;
+  padding: 10px 15px;
 
   border-radius: 999px;
 
-  background:
-    rgba(242, 169, 0, 0.07);
+  background: rgba(242, 169, 0, 0.07);
 
-  border:
-    1px solid
-    rgba(242, 169, 0, 0.2);
+  border: 1px solid rgba(242, 169, 0, 0.2);
 
   color: #d9a23b;
 
@@ -1472,15 +1409,8 @@ a {
 
   opacity: 0.96;
 
-  filter:
-    drop-shadow(
-      0 25px 40px
-      rgba(0, 0, 0, 0.75)
-    )
-    drop-shadow(
-      0 0 35px
-      rgba(242, 169, 0, 0.06)
-    );
+  filter: drop-shadow(0 25px 40px rgba(0, 0, 0, 0.75))
+    drop-shadow(0 0 35px rgba(242, 169, 0, 0.06));
 
   transition:
     transform 0.35s ease,
@@ -1488,18 +1418,10 @@ a {
 }
 
 .store-logo:hover {
-  transform:
-    scale(1.025);
+  transform: scale(1.025);
 
-  filter:
-    drop-shadow(
-      0 30px 45px
-      rgba(0, 0, 0, 0.8)
-    )
-    drop-shadow(
-      0 0 45px
-      rgba(242, 169, 0, 0.12)
-    );
+  filter: drop-shadow(0 30px 45px rgba(0, 0, 0, 0.8))
+    drop-shadow(0 0 45px rgba(242, 169, 0, 0.12));
 }
 
 .store-brand-area .button {
@@ -1529,10 +1451,7 @@ a {
 }
 
 .address {
-  margin:
-    25px
-    0
-    30px;
+  margin: 25px 0 30px;
 
   color: #a89e8d;
 
@@ -1554,17 +1473,13 @@ a {
 
   position: relative;
 
-  border:
-    1px solid
-    rgba(242, 169, 0, 0.18);
+  border: 1px solid rgba(242, 169, 0, 0.18);
 
   background: #11110e;
 
   box-shadow:
-    0 30px 80px
-      rgba(0, 0, 0, 0.45),
-    0 0 40px
-      rgba(242, 169, 0, 0.04);
+    0 30px 80px rgba(0, 0, 0, 0.45),
+    0 0 40px rgba(242, 169, 0, 0.04);
 }
 
 .google-map iframe {
@@ -1582,24 +1497,17 @@ a {
 ========================================= */
 
 footer {
-  padding:
-    60px
-    7%
-    45px;
+  padding: 60px 7% 45px;
 
   background: #040404;
 
-  border-top:
-    1px solid
-    rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 footer p {
   max-width: 500px;
 
-  margin:
-    27px
-    0;
+  margin: 27px 0;
 
   color: #746e64;
 
@@ -1631,9 +1539,7 @@ footer p {
 
   padding-top: 25px;
 
-  border-top:
-    1px solid
-    rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 
   color: #555048;
 
@@ -1653,17 +1559,16 @@ footer p {
 ========================================= */
 
 @media (max-width: 1000px) {
-
   .lounge-instagram {
-  width: 100%;
-  max-width: 430px;
+    width: 100%;
+    max-width: 430px;
 
-  justify-self: center;
+    justify-self: center;
 
-  margin-top: 8px;
+    margin-top: 8px;
 
-  transform: none;
-}
+    transform: none;
+  }
 
   .navbar nav {
     display: none;
@@ -1759,7 +1664,6 @@ footer p {
 ========================================= */
 
 @media (max-width: 650px) {
-
   body {
     padding-bottom: 70px;
   }
@@ -1793,10 +1697,7 @@ footer p {
   .hero {
     min-height: auto;
 
-    padding:
-      125px
-      20px
-      60px;
+    padding: 125px 20px 60px;
   }
 
   .hero h1 {
@@ -1832,8 +1733,7 @@ footer p {
 
     border-radius: 14px;
 
-    background:
-      rgba(255, 255, 255, 0.02);
+    background: rgba(255, 255, 255, 0.02);
   }
 
   .hero-art {
@@ -1856,9 +1756,7 @@ footer p {
 
   .section,
   .jukebox-section {
-    padding:
-      80px
-      20px;
+    padding: 80px 20px;
   }
 
   .section-heading h2,
@@ -1933,9 +1831,7 @@ footer p {
   /* JUKEBOX */
 
   .jukebox-card {
-    padding:
-      55px
-      22px;
+    padding: 55px 22px;
 
     border-radius: 28px;
   }
@@ -1962,9 +1858,7 @@ footer p {
   /* STORE */
 
   .store-section {
-    padding:
-      80px
-      20px;
+    padding: 80px 20px;
 
     min-height: auto;
   }
@@ -2000,9 +1894,7 @@ footer p {
   .store-logo {
     width: 260px;
 
-    margin:
-      0
-      auto;
+    margin: 0 auto;
   }
 
   .store-brand-area .button {
@@ -2026,10 +1918,7 @@ footer p {
   /* FOOTER */
 
   footer {
-    padding:
-      50px
-      20px
-      35px;
+    padding: 50px 20px 35px;
   }
 
   .footer-links {
@@ -2045,27 +1934,20 @@ footer p {
 
     display: grid;
 
-    grid-template-columns:
-      repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 
     position: fixed;
 
-    inset:
-      auto
-      0
-      0;
+    inset: auto 0 0;
 
     z-index: 200;
 
-    background:
-      rgba(6, 6, 6, 0.96);
+    background: rgba(6, 6, 6, 0.96);
 
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
 
-    border-top:
-      1px solid
-      rgba(242, 169, 0, 0.18);
+    border-top: 1px solid rgba(242, 169, 0, 0.18);
   }
 
   .mobile-actions a {
@@ -2096,7 +1978,6 @@ footer p {
 ========================================= */
 
 @media (max-width: 390px) {
-
   .hero h1 {
     font-size: 54px;
   }

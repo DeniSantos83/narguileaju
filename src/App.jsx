@@ -1,22 +1,83 @@
+import { useEffect, useState } from "react";
 import logoNarguileAju from "./assets/logo-narguileaju.jpeg";
 import loungeVideo from "./assets/hookah.mp4";
 import { FaInstagram, FaYoutube, FaWhatsapp } from "react-icons/fa";
+import { supabase } from "./lib/supabase";
 
 const WHATSAPP_LINK =
   "https://wa.me/557991717219?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20NarguileAju.";
 
 const INSTAGRAM_LINK = "https://www.instagram.com/narguileaju/";
 
-const YOUTUBE_LINK =
-  "https://www.youtube.com/c/TalkAboutHookahBrazil/about";
+const YOUTUBE_LINK = "https://www.youtube.com/c/TalkAboutHookahBrazil/about";
 
 const JUKEBOX_LINK = "https://denisantos83.github.io/hookah/#/";
 
 const MAPS_LINK =
   "https://www.google.com/maps/place/NarguileAju+Hookah+Lounge+%26+Store+-+R.+Vila+Cristina,+617+-+S%C3%A3o+Jos%C3%A9,+Aracaju+-+SE,+49015-380/data=!4m2!3m1!1s0x71ab333b310c7f1:0xfd4d21cd5b32f9d6?utm_source=mstt_1&entry=gps";
 
-function App() {
+function LoungePresenceCard() {
+  const [quantidade, setQuantidade] = useState(null);
+  const [erro, setErro] = useState(false);
 
+  useEffect(() => {
+    let ativo = true;
+
+    async function atualizarPresenca() {
+      const { data, error } = await supabase.rpc("quantidade_pessoas_lounge");
+
+      if (!ativo) return;
+
+      if (error) {
+        console.error("Não foi possível consultar o lounge:", error);
+        setErro(true);
+        return;
+      }
+
+      setQuantidade(Number(data) || 0);
+      setErro(false);
+    }
+
+    atualizarPresenca();
+    const intervalo = window.setInterval(atualizarPresenca, 60000);
+
+    return () => {
+      ativo = false;
+      window.clearInterval(intervalo);
+    };
+  }, []);
+
+  // Se houver alguma instabilidade, o card não exibe informação incorreta.
+  if (erro) return null;
+
+  const texto =
+    quantidade === null
+      ? "Atualizando presença..."
+      : quantidade === 1
+        ? "1 pessoa no lounge"
+        : `${quantidade} pessoas no lounge`;
+
+  return (
+    <a
+      className="lounge-presence"
+      href={JUKEBOX_LINK}
+      target="_blank"
+      rel="noreferrer"
+      aria-label="Abrir Jukebox NarguileAju"
+    >
+      <span className="lounge-presence-dot" aria-hidden="true" />
+
+      <span>
+        <small>LOUNGE AGORA</small>
+        <strong aria-live="polite">{texto}</strong>
+      </span>
+
+      <b aria-hidden="true">›</b>
+    </a>
+  );
+}
+
+function App() {
   return (
     <div className="site">
       {/* =========================
@@ -142,107 +203,100 @@ function App() {
           </div>
         </section>
 
-       {/* =========================
+        {/* =========================
     LOUNGE
 ========================== */}
 
-<section className="section lounge-section" id="lounge">
-  <div className="section-heading lounge-heading">
-    <span className="eyebrow">NOSSO ESPAÇO</span>
+        <section className="section lounge-section" id="lounge">
+          <div className="section-heading lounge-heading">
+            <span className="eyebrow">NOSSO ESPAÇO</span>
 
-    <h2>O lounge onde a noite acontece.</h2>
+            <h2>O lounge onde a noite acontece.</h2>
 
-    <p>
-      Um ambiente criado para quem gosta de boa música, bons momentos e
-      uma experiência completa em cultura hookah.
-    </p>
-  </div>
+            <p>
+              Um ambiente criado para quem gosta de boa música, bons momentos e
+              uma experiência completa em cultura hookah.
+            </p>
+          </div>
 
-  <div className="lounge-showcase">
+          <div className="lounge-showcase">
+            {/* CARDS */}
 
-    {/* CARDS */}
+            <div className="lounge-features">
+              <article className="lounge-mini-card">
+                <span className="feature-icon">🔥</span>
 
-    <div className="lounge-features">
+                <div>
+                  <h3>Experiência Hookah</h3>
 
-      <article className="lounge-mini-card">
-        <span className="feature-icon">🔥</span>
+                  <p>
+                    Um ambiente pensado para quem realmente aprecia narguile e
+                    quer aproveitar cada sessão.
+                  </p>
+                </div>
+              </article>
 
-        <div>
-          <h3>Experiência Hookah</h3>
+              <article className="lounge-mini-card">
+                <span className="feature-icon">🎶</span>
 
-          <p>
-            Um ambiente pensado para quem realmente aprecia narguile e
-            quer aproveitar cada sessão.
-          </p>
-        </div>
-      </article>
+                <div>
+                  <h3>Música do seu jeito</h3>
 
-      <article className="lounge-mini-card">
-        <span className="feature-icon">🎶</span>
+                  <p>
+                    Entre no nosso Jukebox pelo celular e participe da trilha
+                    sonora da casa.
+                  </p>
+                </div>
+              </article>
 
-        <div>
-          <h3>Música do seu jeito</h3>
+              <article className="lounge-mini-card">
+                <span className="feature-icon">📸</span>
 
-          <p>
-            Entre no nosso Jukebox pelo celular e participe da trilha
-            sonora da casa.
-          </p>
-        </div>
-      </article>
+                <div>
+                  <h3>Viva e compartilhe</h3>
 
-      <article className="lounge-mini-card">
-        <span className="feature-icon">📸</span>
+                  <p>
+                    Curta a noite, registre seus momentos e acompanhe a
+                    NarguileAju nas redes sociais.
+                  </p>
+                </div>
+              </article>
+            </div>
 
-        <div>
-          <h3>Viva e compartilhe</h3>
+            {/* INSTAGRAM */}
 
-          <p>
-            Curta a noite, registre seus momentos e acompanhe a
-            NarguileAju nas redes sociais.
-          </p>
-        </div>
-      </article>
+            <div className="lounge-instagram">
+              <div className="instagram-header">
+                <div>
+                  <span className="instagram-label">NO NARGUILEAJU</span>
+                  <strong>Veja como é a experiência.</strong>
+                </div>
 
-    </div>
+                <a
+                  href="https://www.instagram.com/reel/DYBXuG_oV8S/"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Abrir Reel no Instagram"
+                >
+                  <FaInstagram />
+                </a>
+              </div>
 
-    {/* INSTAGRAM */}
-
-    <div className="lounge-instagram">
-
-      <div className="instagram-header">
-        <div>
-          <span className="instagram-label">NO NARGUILEAJU</span>
-          <strong>Veja como é a experiência.</strong>
-        </div>
-
-        <a
-          href="https://www.instagram.com/reel/DYBXuG_oV8S/"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="Abrir Reel no Instagram"
-        >
-          <FaInstagram />
-        </a>
-      </div>
-
-      <div className="instagram-video">
-        <video
-          src={loungeVideo}
-          autoPlay
-          muted
-          loop
-          playsInline
-          controls
-          preload="metadata"
-          aria-label="Vídeo da experiência no NarguileAju"
-        />
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
+              <div className="instagram-video">
+                <video
+                  src={loungeVideo}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  controls
+                  preload="metadata"
+                  aria-label="Vídeo da experiência no NarguileAju"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* =========================
             JUKEBOX
@@ -387,9 +441,7 @@ function App() {
                 da NarguileAju diretamente pelo site.
               </p>
 
-              <div className="construction-badge">
-                🚧 Em construção
-              </div>
+              <div className="construction-badge">🚧 Em construção</div>
             </div>
 
             {/* DIREITA */}
@@ -417,10 +469,7 @@ function App() {
             LOCALIZAÇÃO
         ========================== */}
 
-        <section
-          className="section location-section"
-          id="localizacao"
-        >
+        <section className="section location-section" id="localizacao">
           <div className="location-content">
             <span className="eyebrow">ONDE ESTAMOS</span>
 
@@ -484,27 +533,15 @@ function App() {
         </p>
 
         <div className="footer-links">
-          <a
-            href={INSTAGRAM_LINK}
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href={INSTAGRAM_LINK} target="_blank" rel="noreferrer">
             Instagram
           </a>
 
-          <a
-            href={YOUTUBE_LINK}
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href={YOUTUBE_LINK} target="_blank" rel="noreferrer">
             YouTube
           </a>
 
-          <a
-            href={WHATSAPP_LINK}
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer">
             WhatsApp
           </a>
         </div>
@@ -519,33 +556,23 @@ function App() {
       ========================== */}
 
       <div className="mobile-actions">
-        <a
-          href={WHATSAPP_LINK}
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer">
           💬
           <span>WhatsApp</span>
         </a>
 
-        <a
-          href={JUKEBOX_LINK}
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a href={JUKEBOX_LINK} target="_blank" rel="noreferrer">
           🎵
           <span>Jukebox</span>
         </a>
 
-        <a
-          href={MAPS_LINK}
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a href={MAPS_LINK} target="_blank" rel="noreferrer">
           📍
           <span>Como chegar</span>
         </a>
       </div>
+
+      <LoungePresenceCard />
     </div>
   );
 }
